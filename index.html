@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#13100e">
+<meta name="description" content="Free games & apps for a limited time · ألعاب وتطبيقات مجانية لفترة محدودة">
+<title>Free Loot · عروض مجانية</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#13100e;--card:#1d1916;--ink:#f3ede4;--mute:#a39a8e;--line:#352f29;--acc:#c6ff3d;--on:#10140a;--hot:#ff5a3c}
+[data-theme=light]{--bg:#f5efe3;--card:#fffaf0;--ink:#1b1713;--mute:#6f665a;--line:#dccfb8;--acc:#1f7a1f;--on:#fff;--hot:#d63a1c}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Rubik,system-ui,sans-serif;line-height:1.6}
+button,select,input{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.wrap{max-width:900px;margin:auto;padding-inline:16px}
+.hero{padding:18px 0 14px;background:radial-gradient(120% 90% at 100% 0,rgba(198,255,61,.16),transparent 60%)}
+.top{display:flex;justify-content:space-between;align-items:center}
+h1{margin:0;font-size:2.3rem;font-weight:800;line-height:1.15;letter-spacing:-.5px}
+h1 mark{background:var(--acc);color:var(--on);padding:0 10px;border-radius:8px}
+.ib{border:1px solid var(--line);background:var(--card);border-radius:99px;min-width:40px;height:40px;padding:0 12px;margin-inline-start:6px}
+.sub{color:var(--mute);margin:6px 0 12px}
+.stat{display:flex;gap:10px;margin:10px 0}
+.stat div{flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 14px}
+.stat b{display:block;font-size:1.5rem;font-weight:800;color:var(--acc)}.stat small{color:var(--mute)}
+input[type=search]{width:100%;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0}
+.row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:3px 0}.row::-webkit-scrollbar{display:none}
+.chip,select{flex:none;border:1px solid var(--line);background:var(--card);border-radius:99px;padding:5px 14px}
+.chip[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:var(--on);font-weight:600}
+.tabs .chip{font-weight:600;padding:6px 18px}
+#st{color:var(--mute);font-size:.85rem;margin:12px 0 8px;min-height:20px}#st.off{color:var(--hot)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;padding-bottom:20px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .15s}
+.card:hover{transform:translateY(-3px)}
+.card.done{opacity:.5}
+.ph{position:relative;aspect-ratio:16/9;background:var(--line)}.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.stamp{position:absolute;top:10px;inset-inline-start:10px;transform:rotate(-7deg);background:rgba(10,12,8,.78);color:#c6ff3d;border:2px dashed #c6ff3d;border-radius:8px;padding:0 10px;font-weight:800}
+.pl{position:absolute;bottom:8px;inset-inline-end:8px;background:rgba(10,12,8,.78);color:#fff;border-radius:99px;padding:0 10px;font-size:.78rem}
+.body{position:relative;padding:12px 14px 12px;border-top:2px dashed var(--line)}
+.body::before,.body::after{content:"";position:absolute;top:-9px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:1px solid var(--line)}
+.body::before{inset-inline-start:-9px}.body::after{inset-inline-end:-9px}
+.card h3{margin:0;font-size:1rem;line-height:1.4}
+.meta{display:flex;gap:10px;align-items:center;color:var(--mute);font-size:.85rem;margin-top:4px}
+.meta s{color:var(--hot)}
+.cd{font-size:.82rem;font-weight:600;color:var(--acc)}.cd.hot{color:var(--hot)}
+.acts{display:flex;gap:6px;margin-top:10px;align-items:center}
+.acts button,.acts a{border:1px solid var(--line);background:transparent;border-radius:99px;padding:3px 12px;text-decoration:none;font-size:.88rem}
+.acts .on{color:var(--hot);border-color:var(--hot)}
+.acts a.get{margin-inline-start:auto;background:var(--acc);border-color:var(--acc);color:var(--on);font-weight:600}
+.badge{position:absolute;top:10px;inset-inline-end:10px;background:var(--hot);color:#fff;font-weight:800;border-radius:8px;padding:0 10px}
+.sk{aspect-ratio:16/11;border-radius:16px;background:linear-gradient(90deg,var(--line) 25%,var(--card) 50%,var(--line) 75%);background-size:200% 100%;animation:sh 1.3s infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.links a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;color:var(--ink);text-decoration:none}
+.links small{display:block;color:var(--mute)}
+h2{font-size:1.05rem;margin:18px 0 8px}
+#sh{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:flex-end;justify-content:center;z-index:20}
+#sh.open{display:flex}
+.sheet{background:var(--bg);width:100%;max-width:600px;max-height:88vh;overflow:auto;border-radius:20px 20px 0 0;padding-bottom:20px;animation:up .25s}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.sheet img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.sheet div.in{padding:14px 18px}.sheet p{white-space:pre-line;color:var(--mute);margin:6px 0}
+.big{display:block;text-align:center;background:var(--acc);color:var(--on);font-weight:800;border-radius:14px;padding:12px;text-decoration:none;margin:12px 0 6px}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:6px 18px;border-radius:99px;display:none;z-index:30}
+footer a{color:var(--acc)}footer{color:var(--mute);font-size:.8rem;text-align:center;padding:10px 16px 30px}
+.fab{position:fixed;inset-inline-end:14px;bottom:18px;width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:var(--card);font-size:1.4rem;z-index:15;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+.fab.on{background:var(--acc);border-color:var(--acc)}
+#np{position:fixed;inset-inline-end:14px;bottom:82px;width:min(330px,calc(100% - 28px));background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:none;z-index:15;box-shadow:0 8px 28px rgba(0,0,0,.4)}
+#np.open{display:block}#np h2{margin:0 0 4px}#np .chip{display:block;width:100%;margin:6px 0;text-align:start;border-radius:12px}#np p{color:var(--mute);font-size:.8rem;margin:8px 0 0}
+#bn{position:fixed;top:12px;left:50%;transform:translateX(-50%);background:var(--acc);color:var(--on);font-weight:600;padding:8px 18px;border-radius:99px;display:none;z-index:40;cursor:pointer;max-width:92%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="top"><h1 id="h1"></h1><span><button class="ib" id="lg" aria-label="Language">EN</button><button class="ib" id="th" aria-label="Theme">◐</button></span></div>
+  <p class="sub" data-i="sub"></p>
+  <div class="stat"><div><b id="n">0</b><small data-i="n"></small></div><div><b id="w">$0</b><small data-i="total"></small></div></div>
+  <input id="q" type="search" data-p="search">
+</div></header>
+<div class="bar"><div class="wrap">
+  <div class="row tabs" id="tabs"></div>
+  <div class="row" id="f1" style="margin-top:6px"></div>
+</div></div>
+<main class="wrap"><div id="st" aria-live="polite"></div><div class="grid" id="g"></div></main>
+<footer><p data-i="note"></p><p><span data-i="by"></span> <a href="https://www.gamerpower.com" target="_blank" rel="noopener">GamerPower.com</a> · <a href="https://www.cheapshark.com" target="_blank" rel="noopener">CheapShark.com</a> · <a href="privacy.html" data-i="pv"></a></p><p data-i="tm"></p></footer>
+<div id="sh" role="dialog" aria-modal="true"><div class="sheet" id="sc"></div></div>
+<button class="fab" id="bell" aria-label="Notifications">🔕</button>
+<div id="np"></div><div id="bn" role="status"></div>
+<div id="toast"></div>
+<script>
+const L = {
+ar:{h1:"عروض <mark>مجانية</mark>",sub:"ألعاب وتطبيقات مجانية لفترة محدودة",search:"ابحث عن لعبة…",offers:"العروض",deals:"خصومات",soft:"برامج",saved:"المحفوظة",all:"الكل",games:"ألعاب",dlc:"إضافات",early:"تجريبي",s_pop:"الأشهر",s_end:"ينتهي قريبًا",s_val:"الأعلى قيمة",s_new:"الأحدث",hide:"إخفاء ما استلمته",free:"مجاني",get:"احصل عليه",left:"متبقي ",noend:"بلا موعد معلن",ended:"انتهى",worth:"القيمة",claimed:"✓ استلمته",save:"♡ حفظ",saved1:"♥ محفوظ",share:"مشاركة",copied:"تم نسخ الرابط",offline:"غير متصل · عرض آخر عروض محفوظة",empty:"لا توجد عروض مطابقة",total:"قيمة العروض الحالية",n:"عرض متاح",how:"طريقة الحصول",np_t:"الإشعارات",np_new:"تنبيه عند ظهور عرض جديد",np_rem:"تذكير قبل انتهاء عرض محفوظ بساعة",np_test:"تجربة إشعار",np_note:"تعمل الإشعارات بشكل مؤكد أثناء فتح التطبيق، وفي الخلفية يقرر أندرويد توقيتها وقد تتأخر. للتذكير المضمون اضغط «ذكّرني» داخل العرض لإضافته إلى التقويم.",np_denied:"الإشعارات مرفوضة. فعّلها من إعدادات الهاتف ثم أعد المحاولة",np_unsup:"الإشعارات غير مدعومة هنا",newn:"🎁 عروض جديدة: ",rem_t:"⏰ ينتهي قريبًا",rem_b:"ينتهي خلال أقل من ساعة: ",cal:"⏰ ذكّرني (تقويم)",test_t:"تم تفعيل الإشعارات",test_b:"هكذا سيصلك التنبيه",by:"بيانات العروض من",pv:"الخصوصية والشروط",tm:"أسماء المتاجر والألعاب وشعاراتها وصورها ملك لأصحابها، والتطبيق مستقل وغير تابع لها ولا مدعوم منها.",note:"العروض مؤقتة وقد تختلف حسب المنطقة. تُفتح روابط المتاجر والمصادر الأصلية.",soft_h:"برامج مجانية (ويندوز)",store_h:"صفحات المتاجر الرسمية",off:"خصم",open:"فتح",load:"جارٍ التحميل…",cnt:" عرض",d:"ي",h:"س",m:"د"},
+en:{h1:"Free <mark>Loot</mark>",sub:"Free games & apps for a limited time",search:"Search a game…",offers:"Offers",deals:"Deals",soft:"Software",saved:"Saved",all:"All",games:"Games",dlc:"DLC & loot",early:"Beta",s_pop:"Popular",s_end:"Ending soon",s_val:"Highest value",s_new:"Newest",hide:"Hide claimed",free:"FREE",get:"Get it",left:"Left: ",noend:"No end date",ended:"Ended",worth:"Worth",claimed:"✓ Claimed",save:"♡ Save",saved1:"♥ Saved",share:"Share",copied:"Link copied",offline:"Offline · showing last saved offers",empty:"No matching offers",total:"Value of live offers",n:"live offers",how:"How to claim",np_t:"Notifications",np_new:"Alert when a new offer appears",np_rem:"Remind me 1 hour before a saved offer ends",np_test:"Test notification",np_note:"Notifications are reliable while the app is open. In the background, Android decides the timing and it may be delayed. For a guaranteed reminder, tap \"Remind me\" inside an offer to add it to your calendar.",np_denied:"Notifications are blocked. Enable them in phone settings and try again",np_unsup:"Notifications are not supported here",newn:"🎁 New offers: ",rem_t:"⏰ Ending soon",rem_b:"Ends in under an hour: ",cal:"⏰ Remind me (calendar)",test_t:"Notifications enabled",test_b:"This is how alerts will look",by:"Offers data from",pv:"Privacy & terms",tm:"Store, game and brand names, logos and images belong to their owners. This app is independent and is not affiliated with or endorsed by them.",note:"Offers are temporary and may be region-locked. Links open the original stores and sources.",soft_h:"Free software (Windows)",store_h:"Official store pages",off:"OFF",open:"Open",load:"Loading…",cnt:" offers",d:"d",h:"h",m:"m"}
+};
+const PLAT = [["Steam",/steam/i],["Epic",/epic/i],["GOG",/gog/i],["Android",/android/i],["iOS",/ios/i],["itch.io",/itch/i],["Ubisoft",/ubisoft|uplay/i],["Console",/ps[345]|xbox|switch|playstation|nintendo/i]];
+const TYPES = {all:null,games:/^game/i,dlc:/dlc|loot/i,early:/early|beta/i};
+const STORES = {1:"Steam",7:"GOG",25:"Epic",11:"Humble"};
+const SOFT = [
+ {n:"Giveaway of the Day",u:"https://www.giveawayoftheday.com",ar:"برنامج مرخّص كل يوم، ويجب تثبيته في اليوم نفسه",en:"A licensed program daily; install it the same day"},
+ {n:"SharewareOnSale",u:"https://sharewareonsale.com",ar:"عروض يومية لويندوز وماك",en:"Daily Windows & Mac deals"},
+ {n:"Vovsoft",u:"https://vovsoft.com",ar:"موقع برامج ويندوز وعروض مجانية دورية",en:"Windows software with periodic free offers"}];
+const STORELINKS = [
+ {n:"Epic Games",u:"https://store.epicgames.com/free-games"},
+ {n:"Steam",u:"https://store.steampowered.com/search/?maxprice=free&specials=1"},
+ {n:"GOG",u:"https://www.gog.com/en/games?priceRange=0,0&discounted=true"},
+ {n:"itch.io",u:"https://itch.io/games/free"},
+ {n:"Prime Gaming",u:"https://gaming.amazon.com"}];
+
+const $ = id => document.getElementById(id);
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const store = {get(k, d){ try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch(e){ return d; } }, set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }};
+let lang = store.get("fl-lang", (navigator.language || "").startsWith("ar") ? "ar" : "en");
+let theme = store.get("fl-theme", "dark"), tab = "offers", plat = "all", type = "all", sort = store.get("fl-sort", "pop"), hide = store.get("fl-hide", false), q = "";
+let favs = store.get("fl-favs", []), done = store.get("fl-done", []);
+let offers = store.get("fl-cache", []), deals = [], loading = !offers.length, offline = false, dealsLoaded = false;
+const t = k => L[lang][k];
+const worth = g => parseFloat(String(g.worth || "").replace(/[^0-9.]/g, "")) || 0;
+const endOf = g => { const d = new Date(String(g.end_date || "").replace(" ", "T") + "Z"); return isNaN(d) ? null : d; };
+const clean = s => (s || "").replace(/\s*giveaway$/i, "");
+const label = g => (PLAT.find(p => p[1].test(g.platforms || "")) || [g.platforms || "PC"])[0];
+const left = ms => { const m = Math.floor(ms / 60000), d = Math.floor(m / 1440), h = Math.floor(m % 1440 / 60); return d ? d + t("d") + " " + h + t("h") : h ? h + t("h") + " " + (m % 60) + t("m") : (m % 60) + t("m"); };
+const toast = s => { const e = $("toast"); e.textContent = s; e.style.display = "block"; clearTimeout(toast.x); toast.x = setTimeout(() => e.style.display = "none", 1800); };
+
+function applyLang() {
+  document.documentElement.lang = lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  document.documentElement.dataset.theme = theme;
+  $("h1").innerHTML = t("h1"); $("lg").textContent = lang === "ar" ? "EN" : "ع";
+  document.querySelectorAll("[data-i]").forEach(e => e.textContent = t(e.dataset.i));
+  document.querySelectorAll("[data-p]").forEach(e => e.placeholder = t(e.dataset.p));
+}
+$("lg").onclick = () => { lang = lang === "ar" ? "en" : "ar"; store.set("fl-lang", lang); applyLang(); syncSW(); panel(); controls(); render(); };
+$("th").onclick = () => { theme = theme === "dark" ? "light" : "dark"; store.set("fl-theme", theme); applyLang(); };
+$("q").oninput = e => { q = e.target.value.toLowerCase(); render(); };
+
+function chip(txt, on, fn) { const b = el("button", "chip", txt); b.setAttribute("aria-pressed", on); b.onclick = fn; return b; }
+function controls() {
+  const tb = $("tabs"); tb.textContent = "";
+  [["offers"], ["deals"], ["soft"], ["saved"]].forEach(([k]) => tb.append(chip(t(k) + (k === "saved" ? " (" + favs.length + ")" : ""), tab === k, () => { tab = k; if (k === "deals") loadDeals(); controls(); render(); })));
+  const f = $("f1"); f.textContent = "";
+  if (tab !== "offers" && tab !== "saved") return;
+  f.append(chip(t("all"), plat === "all", () => { plat = "all"; controls(); render(); }));
+  PLAT.forEach(p => f.append(chip(p[0] === "Console" ? (lang === "ar" ? "أجهزة الألعاب" : "Consoles") : p[0], plat === p[0], () => { plat = p[0]; controls(); render(); })));
+  const ty = el("select"); ty.setAttribute("aria-label", "type");
+  Object.keys(TYPES).forEach(k => { const o = el("option", "", t(k)); o.value = k; o.selected = k === type; ty.append(o); });
+  ty.onchange = () => { type = ty.value; render(); };
+  const so = el("select"); so.setAttribute("aria-label", "sort");
+  ["pop", "end", "val", "new"].forEach(k => { const o = el("option", "", t("s_" + k)); o.value = k; o.selected = k === sort; so.append(o); });
+  so.onchange = () => { sort = so.value; store.set("fl-sort", sort); render(); };
+  f.append(ty, so, chip(t("hide"), hide, () => { hide = !hide; store.set("fl-hide", hide); controls(); render(); }));
+}
+
+function toggle(arr, id, key) { const i = arr.indexOf(id); i < 0 ? arr.push(id) : arr.splice(i, 1); store.set(key, arr); syncSW(); checkRem(); }
+function link(g) { return g.open_giveaway_url || g.gamerpower_url || "#"; }
+
+function card(g) {
+  const c = el("article", "card" + (done.includes(g.id) ? " done" : ""));
+  const ph = el("div", "ph"), im = el("img"); im.src = g.thumbnail || g.image; im.alt = ""; im.loading = "lazy"; im.referrerPolicy = "no-referrer"; im.onerror = () => im.remove();
+  ph.append(im, el("span", "stamp", t("free")), el("span", "pl", label(g)));
+  const b = el("div", "body"); b.append(el("h3", "", clean(g.title)));
+  const m = el("div", "meta"), e = endOf(g);
+  if (worth(g)) m.append(el("s", "", "$" + worth(g).toFixed(2)));
+  const cd = el("span", "cd"); if (e) { cd.dataset.end = e.getTime(); } else cd.textContent = t("noend");
+  m.append(cd); b.append(m);
+  const a = el("div", "acts");
+  const fv = el("button", favs.includes(g.id) ? "on" : "", favs.includes(g.id) ? t("saved1") : t("save"));
+  fv.onclick = ev => { ev.stopPropagation(); toggle(favs, g.id, "fl-favs"); controls(); render(); };
+  const dn = el("button", "", t("claimed")); dn.onclick = ev => { ev.stopPropagation(); toggle(done, g.id, "fl-done"); render(); };
+  const gt = el("a", "get", t("get")); gt.href = link(g); gt.target = "_blank"; gt.rel = "noopener"; gt.onclick = ev => ev.stopPropagation();
+  a.append(fv, dn, gt); b.append(a); c.append(ph, b);
+  c.onclick = () => sheet(g); tick(cd);
+  return c;
+}
+function tick(cd) {
+  if (!cd.dataset.end) return; const ms = cd.dataset.end - Date.now();
+  cd.textContent = ms <= 0 ? t("ended") : t("left") + left(ms); cd.classList.toggle("hot", ms < 864e5);
+}
+setInterval(() => { document.querySelectorAll(".cd").forEach(tick); checkRem(); }, 30000);
+
+function dealCard(d) {
+  const c = el("article", "card"), ph = el("div", "ph"), im = el("img"); im.src = d.thumb; im.alt = ""; im.loading = "lazy"; im.onerror = () => im.remove();
+  const s = Math.round(d.savings); ph.append(im, el("span", "pl", STORES[d.storeID] || "PC"));
+  c.append(ph, el("span", "badge", "-" + s + "%"));
+  const b = el("div", "body"); b.append(el("h3", "", d.title));
+  const m = el("div", "meta"); m.append(el("s", "", "$" + d.normalPrice), el("span", "cd", +d.salePrice ? "$" + d.salePrice : t("free"))); b.append(m);
+  const a = el("div", "acts"), gt = el("a", "get", t("open")); gt.href = "https://www.cheapshark.com/redirect?dealID=" + d.dealID; gt.target = "_blank"; gt.rel = "noopener"; a.append(gt);
+  b.append(a); c.append(b); return c;
+}
+
+function sheet(g) {
+  const s = $("sc"); s.textContent = "";
+  const im = el("img"); im.src = g.image || g.thumbnail; im.alt = ""; im.onerror = () => im.remove();
+  const d = el("div", "in"); d.append(el("h2", "", clean(g.title)), el("p", "", label(g) + " · " + g.type + (worth(g) ? " · " + t("worth") + " $" + worth(g).toFixed(2) : "")), el("p", "", g.description));
+  if (g.instructions) d.append(el("h2", "", t("how")), el("p", "", g.instructions));
+  const gt = el("a", "big", t("get")); gt.href = link(g); gt.target = "_blank"; gt.rel = "noopener";
+  const sh = el("button", "chip", t("share")); sh.onclick = async () => { try { if (navigator.share) await navigator.share({title: clean(g.title), url: link(g)}); else { await navigator.clipboard.writeText(link(g)); toast(t("copied")); } } catch(e){} };
+  let cb = null; const en = endOf(g);
+  if (en && en > Date.now()) { cb = el("a", "chip", t("cal")); cb.style.cssText = "display:inline-block;margin-inline-start:6px;text-decoration:none"; cb.href = ics(g, en); cb.download = "offer-" + g.id + ".ics"; }
+  const src = el("a", "", "via GamerPower.com"); src.href = g.gamerpower_url || "https://www.gamerpower.com"; src.target = "_blank"; src.rel = "noopener"; src.style.cssText = "display:block;margin-top:10px;color:var(--mute);font-size:.82rem";
+  d.append(gt, sh, ...(cb ? [cb] : []), src); s.append(im, d); $("sh").classList.add("open");
+}
+$("sh").onclick = e => { if (e.target === $("sh")) $("sh").classList.remove("open"); };
+addEventListener("keydown", e => { if (e.key === "Escape") $("sh").classList.remove("open"); });
+
+function render() {
+  const g = $("g"); g.textContent = ""; let n = 0;
+  if (tab === "soft") {
+    g.style.display = "block";
+    const h = el("h2", "", t("soft_h")), l = el("div", "links");
+    SOFT.forEach(s => { const a = el("a"); a.href = s.u; a.target = "_blank"; a.rel = "noopener"; a.append(el("span", "", s.n), el("small", "", s[lang])); l.append(a); });
+    const h2 = el("h2", "", t("store_h")), l2 = el("div", "links");
+    STORELINKS.forEach(s => { const a = el("a"); a.href = s.u; a.target = "_blank"; a.rel = "noopener"; a.append(el("span", "", s.n)); l2.append(a); });
+    g.append(h, l, h2, l2); $("st").textContent = ""; return;
+  }
+  g.style.display = "";
+  if (tab === "deals") {
+    if (!dealsLoaded) { for (let k = 0; k < 6; k++) g.append(el("div", "sk")); $("st").textContent = t("load"); return; }
+    deals.filter(d => !q || d.title.toLowerCase().includes(q)).forEach(d => { g.append(dealCard(d)); n++; });
+    $("st").textContent = n ? n + t("cnt") : t("empty"); $("st").className = ""; return;
+  }
+  if (loading) { for (let k = 0; k < 6; k++) g.append(el("div", "sk")); $("st").textContent = t("load"); return; }
+  const pr = PLAT.find(p => p[0] === plat);
+  let list = offers.filter(o => (tab !== "saved" || favs.includes(o.id)) && (plat === "all" || (pr && pr[1].test(o.platforms || ""))) && (!TYPES[type] || TYPES[type].test(o.type || "")) && (!hide || !done.includes(o.id)) && (!q || o.title.toLowerCase().includes(q)));
+  const far = 9e15, by = {pop: (a, b) => (b.users || 0) - (a.users || 0), end: (a, b) => (endOf(a) || far) - (endOf(b) || far), val: (a, b) => worth(b) - worth(a), new: (a, b) => new Date(b.published_date) - new Date(a.published_date)};
+  list.sort(by[sort]).forEach(o => { g.append(card(o)); n++; });
+  $("st").textContent = (offline ? t("offline") + " · " : "") + (n ? n + t("cnt") : t("empty")); $("st").className = offline ? "off" : "";
+}
+
+function count(el2, to, pre) { const t0 = performance.now(); (function f(t1) { const p = Math.min(1, (t1 - t0) / 700); el2.textContent = pre + Math.round(to * p); if (p < 1) requestAnimationFrame(f); })(t0); }
+function stats() { count($("n"), offers.length, ""); count($("w"), Math.round(offers.reduce((s, o) => s + worth(o), 0)), "$"); }
+
+async function load(silent) {
+  if (!silent && !offers.length) { loading = true; render(); }
+  try {
+    const r = await fetch("https://www.gamerpower.com/api/giveaways"), j = await r.json();
+    const list = Array.isArray(j) ? j.filter(o => o.status !== "Expired") : [];
+    offline = false; offers = list; checkNew(list);
+    store.set("fl-cache", list.slice(0, 150).map(o => ({...o, description: (o.description || "").slice(0, 400), instructions: (o.instructions || "").slice(0, 400)})));
+  } catch(e) { offline = true; }
+  loading = false; controls(); render(); stats();
+}
+async function loadDeals() {
+  if (dealsLoaded) return;
+  try { const r = await fetch("https://www.cheapshark.com/api/1.0/deals?onSale=1&sortBy=Savings&upperPrice=10&pageSize=40"); deals = await r.json(); } catch(e) { deals = []; }
+  dealsLoaded = true; render();
+}
+
+// ---- الإشعارات ----
+let notif = store.get("fl-notif", {new: false, rem: false}), reminded = store.get("fl-rem", []);
+const cacheJ = async (k, v) => { try { const c = await caches.open("fl-data"); if (v === undefined) { const r = await c.match(k); return r ? await r.json() : null; } await c.put(k, new Response(JSON.stringify(v))); } catch(e){ return null; } };
+function syncSW() { cacheJ("cfg", {notif, favs, done, lang}); }
+async function notify(title, body, tag) {
+  try { const reg = await navigator.serviceWorker.ready; await reg.showNotification(title, {body, tag, icon: "icon-192.png", badge: "icon-192.png", lang, dir: lang === "ar" ? "rtl" : "ltr", data: {url: "./"}}); }
+  catch(e) { try { new Notification(title, {body, tag}); } catch(x){} }
+}
+function banner(txt) {
+  const b = $("bn"); b.textContent = txt + "  ›"; b.style.display = "block";
+  b.onclick = () => { b.style.display = "none"; tab = "offers"; sort = "new"; controls(); render(); scrollTo({top: 0, behavior: "smooth"}); };
+  clearTimeout(banner.x); banner.x = setTimeout(() => b.style.display = "none", 9000);
+}
+async function checkNew(list) {
+  const old = store.get("fl-seen", null), prev = [...new Set([...(old || []), ...((await cacheJ("seen")) || [])])], ids = list.map(o => o.id);
+  store.set("fl-seen", ids); cacheJ("seen", ids);
+  if (old === null && !prev.length || !notif.new) return;
+  const fresh = list.filter(o => !prev.includes(o.id)); if (!fresh.length) return;
+  const one = fresh.length === 1, title = one ? "🎁 " + clean(fresh[0].title) : t("newn") + fresh.length;
+  const body = one ? label(fresh[0]) + (worth(fresh[0]) ? " · $" + worth(fresh[0]).toFixed(2) : "") : fresh.slice(0, 3).map(o => clean(o.title)).join("، ");
+  banner(title); if (Notification.permission === "granted") notify(title, body, "fl-new");
+}
+function checkRem() {
+  if (!notif.rem) return;
+  offers.forEach(o => {
+    const e = endOf(o); if (!e || !favs.includes(o.id) || done.includes(o.id) || reminded.includes(o.id)) return;
+    const ms = e - Date.now(); if (ms <= 0 || ms > 3600000) return;
+    reminded.push(o.id); store.set("fl-rem", reminded); cacheJ("rem", reminded);
+    banner(t("rem_t") + " · " + clean(o.title)); if (Notification.permission === "granted") notify(t("rem_t"), t("rem_b") + clean(o.title), "fl-rem-" + o.id);
+  });
+}
+async function ask() {
+  if (!("Notification" in window)) { toast(t("np_unsup")); return false; }
+  if (Notification.permission === "default") await Notification.requestPermission();
+  if (Notification.permission !== "granted") { toast(t("np_denied")); return false; }
+  return true;
+}
+async function flip(k) { if (!notif[k] && !(await ask())) return; notif[k] = !notif[k]; store.set("fl-notif", notif); syncSW(); panel(); periodic(); checkRem(); }
+async function periodic() {
+  try {
+    const reg = await navigator.serviceWorker.ready; if (!("periodicSync" in reg)) return;
+    if (notif.new || notif.rem) { const s = await navigator.permissions.query({name: "periodic-background-sync"}); if (s.state === "granted") await reg.periodicSync.register("fl-check", {minInterval: 3600000}); }
+    else await reg.periodicSync.unregister("fl-check");
+  } catch(e){}
+}
+function panel() {
+  const p = $("np"); p.textContent = ""; p.append(el("h2", "", t("np_t")));
+  [["new", "np_new"], ["rem", "np_rem"]].forEach(([k, s]) => { const b = el("button", "chip", t(s)); b.setAttribute("aria-pressed", notif[k]); b.setAttribute("role", "switch"); b.setAttribute("aria-checked", notif[k]); b.onclick = () => flip(k); p.append(b); });
+  const ts = el("button", "chip", t("np_test")); ts.onclick = async () => { if (await ask()) notify(t("test_t"), t("test_b"), "fl-test"); };
+  p.append(ts, el("p", "", t("np_note")));
+  const on = notif.new || notif.rem; $("bell").textContent = on ? "🔔" : "🔕"; $("bell").classList.toggle("on", on);
+}
+$("bell").onclick = () => $("np").classList.toggle("open");
+function ics(g, e) {
+  const f = d => d.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+  const s = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//FreeLoot//EN", "BEGIN:VEVENT", "UID:fl-" + g.id + "@freeloot", "DTSTAMP:" + f(new Date()), "DTSTART:" + f(e), "DTEND:" + f(new Date(+e + 900000)),
+    "SUMMARY:" + clean(g.title).replace(/[,;\n]/g, " ") + " - " + t("free"), "DESCRIPTION:" + link(g), "BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + t("rem_b"), "TRIGGER:-PT1H", "END:VALARM", "END:VEVENT", "END:VCALENDAR"];
+  return "data:text/calendar;charset=utf-8," + encodeURIComponent(s.join("\r\n"));
+}
+
+applyLang(); controls(); render(); stats(); load(); panel(); syncSW(); checkRem(); periodic();
+cacheJ("rem").then(r => { if (r) reminded = [...new Set([...reminded, ...r])]; });
+setInterval(() => { if (!document.hidden) load(true); }, 600000);
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
+</script>
+</body>
+</html>
